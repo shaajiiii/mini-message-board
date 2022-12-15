@@ -1,0 +1,25 @@
+
+.Nav-header{
+    font-size: larger;
+    font-weight: 700;
+    margin-right: 2rem;
+    cursor: pointer;
+    color: rgb(213, 213, 213);
+}
+.Nav-header:hover{
+    color: White;
+}
+.Nav-header:active{
+    color: rgb(0, 0, 0);
+}
+
+.navbar{
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   position: fixed;
+   width: 100%;
+   background-color: #398ab9;
+   color: white;
+}
+.fix-box-nav{
+    height: 5rem;
+}
