@@ -1,1 +1,41 @@
-/* To be added */
+.input-form-contianer{
+    margin-top: 1rem;
+    background-color: #398ab9;
+    border-radius: 1rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.input-msg-box{
+    background-color: #1c668d;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+    resize: none;
+}
+.input-msg-box::placeholder{
+    color:#a5c4d9;
+    font-weight: 700;
+}
+.input-title-box::placeholder{
+    color:#a5c4d9;
+    font-weight: 700;
+}
+.input-title-box{
+    background-color: #1c668d;
+    border: none;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+.submit-button{
+    float: right;
+    background-color:#ecf1f5;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.3rem;
+    font-weight: bolder;
+    color:  #1c668d;
+    
+}

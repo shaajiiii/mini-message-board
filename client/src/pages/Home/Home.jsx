@@ -9,23 +9,12 @@ function Home() {
     <>
       <div className="home">
         <Nav />
-
         <div className="content col-12 row d-flex justify-content-center">
-
-          <div className="col-6">
-
+          <div className="col-12 col-md-6" style={{ padding: "2rem" }}>
             <InputBox />
-
           </div>
-
         </div>
-
-
-
       </div>
-
-
-
     </>
   )
 }
