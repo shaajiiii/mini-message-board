@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,6 +8,18 @@ function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  let checktoken = () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      window.location = '/';
+    }
+
+  }
+
+
+  useEffect(() => {
+    checktoken();
+  }, []);
 
 
   let handleSignUp = async (e) => {

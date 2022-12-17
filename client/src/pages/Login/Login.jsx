@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
@@ -8,6 +8,19 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+
+    let checktoken = () => {
+        const token = localStorage.getItem('token')
+        if (token) {
+          window.location = '/';
+        }
+    
+      }
+    
+    
+      useEffect(() => {
+        checktoken();
+      }, []);
 
 
     let handleLogin = async (e) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Nav from '../../components/Nav/Nav';
 import InputBox from '../../components/InputBox/InputBox';
 import PostBox from '../../components/PostBox/PostBox';
@@ -6,6 +6,22 @@ import './Home.css';
 
 
 function Home() {
+
+  let checktoken = () => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      window.location = '/login';
+    }
+
+  }
+
+
+  useEffect(() => {
+    checktoken();
+  }, []);
+
+
+
   return (
     <>
       <div className="home">
