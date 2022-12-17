@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 7000 ;
 const mongoose = require('mongoose');
@@ -14,16 +15,17 @@ mongoose.connect(process.env.DATABASE_URL,(err)=>{
     console.log("database connection successful");
 });
 
-// const userSignup = require('./routes/user-signup');
+const userSignup = require('./routes/user-sign-up');
 // const userLogin = require('./routes/user-login');
 // const actions = require('./routes/Actions');
 const testRouter = require('./routes/test') 
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 // Routing
-// app.use('/signup',userSignup);
+app.use('/signup',userSignup);
 // app.use('/login',userLogin);
 // app.use('/actions',actions);
 app.use('/test',testRouter)

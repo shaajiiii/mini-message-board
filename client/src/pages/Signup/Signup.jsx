@@ -1,7 +1,9 @@
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Signup() {
+  const navigateTo = useNavigate();  
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -9,10 +11,31 @@ function Signup() {
 
 
   let handleSignUp = async (e) => {
-
-  
     e.preventDefault()
-    
+    let signUpData = {
+        username : username,
+        password:password
+    }
+    console.log(signUpData);
+    try {
+        let resp = await axios.post("http://localhost:7000/signup",signUpData);
+        if(resp.status === 201){
+            setError('');setUsername('');setPassword('');
+            navigateTo('/login')
+
+        }
+        
+    } catch (error) {
+        if(error.response.status===400){
+            setError(error.response.data.message)
+        }else if(error.response.status===409){
+            setError(error.response.data.message)
+        }
+        else{
+            console.log(error);
+        }
+
+    }
   }
 
   return (
