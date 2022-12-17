@@ -16,7 +16,7 @@ function Signup() {
         username : username,
         password:password
     }
-    console.log(signUpData);
+
     try {
         let resp = await axios.post("http://localhost:7000/signup",signUpData);
         if(resp.status === 201){

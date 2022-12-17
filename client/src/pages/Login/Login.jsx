@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import './Login.css'
+import './Login.css';
+import axios from 'axios';
 
 function Login() {
     const [error, setError] = useState('');
@@ -11,6 +12,32 @@ function Login() {
 
     let handleLogin = async (e) => {
         e.preventDefault()
+        let LoginData = {
+            username : username,
+            password: password
+        }
+        console.log(LoginData);
+        try {
+            let resp = await axios.post("http://localhost:7000/login", LoginData);
+            if (resp.status === 200) {
+                console.log("suucess login");
+                console.log(resp);
+                localStorage.setItem("token", resp.data.token);
+                window.location = '/';
+            }
+      
+          } catch (error) {
+            if (error.response.status === 400) {
+              setError(error.response.data.message)
+            }else if(error.response.status === 401){
+                setError(error.response.data.message)
+            } 
+            else {
+              console.log(error);
+            }
+          }
+      
+
       
     }
 

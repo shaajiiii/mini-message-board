@@ -16,7 +16,7 @@ mongoose.connect(process.env.DATABASE_URL,(err)=>{
 });
 
 const userSignup = require('./routes/user-sign-up');
-// const userLogin = require('./routes/user-login');
+const userLogin = require('./routes/user-login');
 // const actions = require('./routes/Actions');
 const testRouter = require('./routes/test') 
 
@@ -26,7 +26,7 @@ app.use(cors());
 
 // Routing
 app.use('/signup',userSignup);
-// app.use('/login',userLogin);
+app.use('/login',userLogin);
 // app.use('/actions',actions);
 app.use('/test',testRouter)
 
