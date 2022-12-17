@@ -17,7 +17,7 @@ mongoose.connect(process.env.DATABASE_URL,(err)=>{
 
 const userSignup = require('./routes/user-sign-up');
 const userLogin = require('./routes/user-login');
-// const actions = require('./routes/Actions');
+const homeRouter = require('./routes/homeRouter');
 const testRouter = require('./routes/test') 
 
 // Middlewares
@@ -27,7 +27,7 @@ app.use(cors());
 // Routing
 app.use('/signup',userSignup);
 app.use('/login',userLogin);
-// app.use('/actions',actions);
+app.use('/home',homeRouter);
 app.use('/test',testRouter)
 
 app.listen(PORT,()=>{console.log(`server is listening.... to port ${PORT}`);})

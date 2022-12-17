@@ -4,8 +4,8 @@ const {Post} =require('../model/post')
 
 router.get('/', async(req,res)=>{
     let testPost = {
-        title:"dummy title",
-        message :" dyacygn",
+        title:"dummy title 22222",
+        message :" 2nd mneajhbgfkragfk",
         author:{
             name:"manu"
         }

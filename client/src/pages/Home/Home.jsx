@@ -3,22 +3,43 @@ import Nav from '../../components/Nav/Nav';
 import InputBox from '../../components/InputBox/InputBox';
 import PostBox from '../../components/PostBox/PostBox';
 import './Home.css';
+import axios from 'axios';
 
 
 function Home() {
+
+  const token = localStorage.getItem('token')
   const [loggedInUserName, setLoggeedInUserName] = useState("test Name")
+  const [posts,setPosts] = useState([]);
+
+  
 
   let checktoken = () => {
-    const token = localStorage.getItem('token')
+    
     if (!token) {
       window.location = '/login';
+      return;
     }
 
   }
 
+  let getPostsData = async ()=>{
+    try{
+      let resp = await axios.get("http://localhost:7000/home/get-data", 
+      { headers: {"Authorization" : token} });
+      console.log(resp);
+      setPosts(resp.data.allPosts);
+      setLoggeedInUserName(resp.data.username)
+    }
+    catch{
+
+    }
+
+  }
 
   useEffect(() => {
     checktoken();
+    getPostsData()
   }, []);
 
 
@@ -31,7 +52,7 @@ function Home() {
           <div className="col-12 col-md-6" style={{ padding: "2rem" }}>
             
             <InputBox />
-            <PostBox />
+            <PostBox Posts = {posts} />
           </div>
         </div>
       </div>
