@@ -27,11 +27,12 @@ function Home() {
     try{
       let resp = await axios.get("http://localhost:7000/home/get-data", 
       { headers: {"Authorization" : token} });
-      console.log(resp);
+     
       setPosts(resp.data.allPosts);
       setLoggeedInUserName(resp.data.username)
     }
-    catch{
+    catch (err){
+        console.log(err);
 
     }
 
@@ -51,7 +52,7 @@ function Home() {
         <div className="content col-12 row d-flex justify-content-center">
           <div className="col-12 col-md-6" style={{ padding: "2rem" }}>
             
-            <InputBox />
+            <InputBox getPostData={getPostsData}  />
             <PostBox Posts = {posts} />
           </div>
         </div>

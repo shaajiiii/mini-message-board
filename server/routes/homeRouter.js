@@ -5,7 +5,7 @@ const homeController = require('../controller/home-controller');
 
 
 router.get('/get-data',authenticateToken,homeController.getData)
-
+router.put('/add-post',authenticateToken,homeController.addPost)
 
 function authenticateToken(req, res, next) {
    
