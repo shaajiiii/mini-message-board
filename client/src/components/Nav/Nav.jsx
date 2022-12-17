@@ -5,8 +5,9 @@ import './Nav.css';
 // import withReactContent from 'sweetalert2-react-content';
 
 
-function Nav() {
+function Nav({username}) {
 
+   
     // const [user, setUser] = useState(false)
     // let checkuser = () => {
 
@@ -48,7 +49,7 @@ function Nav() {
         <>
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
-                    <h1> Hi user </h1>
+                    <h1> Hi {username}  </h1>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

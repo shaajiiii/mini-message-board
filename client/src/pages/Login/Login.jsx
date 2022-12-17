@@ -36,6 +36,7 @@ function Login() {
                 console.log("suucess login");
                 console.log(resp);
                 localStorage.setItem("token", resp.data.token);
+                
                 window.location = '/';
             }
       
