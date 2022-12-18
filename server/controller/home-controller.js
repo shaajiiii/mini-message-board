@@ -24,7 +24,13 @@ module.exports = {
         await new Post(req.body).save();
         res.status(201).send({messsage:"created new post"})
 
-    }
+    },
+    deletePost: async (req,res)=>{
+
+      await Post.deleteOne({_id:req.params.postId})  
+      res.status(200).send({message:"Post deleted"})
+
+  }
 }
 
 

@@ -53,7 +53,7 @@ function Home() {
           <div className="col-12 col-md-6" style={{ padding: "2rem" }}>
             
             <InputBox getPostData={getPostsData}  />
-            <PostBox Posts = {posts} />
+            <PostBox Posts = {posts} username={loggedInUserName} getPostData={getPostsData}  />
           </div>
         </div>
       </div>

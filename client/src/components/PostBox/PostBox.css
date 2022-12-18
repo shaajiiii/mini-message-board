@@ -45,3 +45,10 @@
     padding-top: 0px;
 
 }
+
+.delete-icon{
+    float: right;
+    height: 20px;
+    cursor: pointer;
+    
+}
