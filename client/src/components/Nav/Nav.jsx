@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './Nav.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -13,7 +12,7 @@ function Nav({username}) {
     const LogOutprompt = () => {
         MySwal.fire({
             title: 'Log out?',
-            icon: 'warning',
+            icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#1c668d',
             cancelButtonColor: '#398ab9',
