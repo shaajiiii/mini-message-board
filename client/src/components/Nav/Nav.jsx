@@ -45,9 +45,6 @@ function Nav({username}) {
                             <li class="nav-item" onClick={LogOutprompt}>
                                 <span class="nav-link Nav-header" aria-current="page" >Log out</span>
                             </li>
-                            <li class="nav-item">
-                                <span class="nav-link Nav-header" aria-current="page" >About Me</span>
-                            </li>
                         </ul>
                     </div>
                 </div>
