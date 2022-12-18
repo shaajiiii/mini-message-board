@@ -1,12 +1,29 @@
 import React,{useState,useEffect} from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function Signup() {
   const navigateTo = useNavigate();  
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const MySwal = withReactContent(Swal)
+  const Toast = MySwal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', MySwal.stopTimer)
+      toast.addEventListener('mouseleave', MySwal.resumeTimer)
+    }
+  })
+
+
 
   let checktoken = () => {
     const token = localStorage.getItem('token')
@@ -33,6 +50,11 @@ function Signup() {
         let resp = await axios.post("http://localhost:7000/signup",signUpData);
         if(resp.status === 201){
             setError('');setUsername('');setPassword('');
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed up successfully'
+              })
+              
             navigateTo('/login')
 
         }
@@ -49,6 +71,13 @@ function Signup() {
 
     }
   }
+
+ 
+  
+
+
+
+
 
   return (
       <>
