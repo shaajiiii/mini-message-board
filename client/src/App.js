@@ -15,11 +15,23 @@ function App() {
 
     <Routes>
 
-      {userLoggedIn ? <Route path="/" exact element={<Home />} />
-      : <Route path="/" exact element={<Navigate to="/login" /> } />}
+      {userLoggedIn ? 
+      <>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/login" exact element={<Home />}/>
+        <Route path="/signup" exact element={<Home />} />
+      </>
+
+      : 
+      <>
+        <Route path="/" exact element={<Navigate to="/login" />} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/signup" exact element={<Signup />} />
+      </>
+      
+      }
     
-      <Route path="/login" exact element={<Login />} />
-      <Route path="/signup" exact element={<Signup />} />
+      
      
     </Routes>
 

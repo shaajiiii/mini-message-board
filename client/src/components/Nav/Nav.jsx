@@ -1,49 +1,37 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import './Nav.css';
-// import Swal from 'sweetalert2';
-// import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 function Nav({username}) {
 
-   
-    // const [user, setUser] = useState(false)
-    // let checkuser = () => {
 
-    //     let token = localStorage.getItem('token')
-    //     if (token) setUser(true)
-
-    // }
-
-
-    // const MySwal = withReactContent(Swal)
+    const MySwal = withReactContent(Swal)
 
     const LogOutprompt = () => {
-        // MySwal.fire({
-        //     title: 'Log out of Liberty?',
-        //     icon: 'warning',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3bb19b',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Yes!'
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         handleLogout()
-        //     }
-        // })
+        MySwal.fire({
+            title: 'Log out?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1c668d',
+            cancelButtonColor: '#398ab9',
+            confirmButtonText: 'Yes!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleLogout()
+            }
+        })
     }
 
-    // let handleLogout = () => {
+    let handleLogout = () => {
+        localStorage.removeItem('token')
+        window.location = '/'
 
-    //     localStorage.removeItem('token')
-    //     window.location = '/home'
+    }
 
-    // }
-
-    // useEffect(() => {
-    //     checkuser();
-    // }, []);
+    
 
     return (
         <>
