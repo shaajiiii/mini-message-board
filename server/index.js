@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 7000 ;
 const mongoose = require('mongoose');
@@ -18,7 +18,7 @@ mongoose.connect(process.env.DATABASE_URL,(err)=>{
 const userSignup = require('./routes/user-sign-up');
 const userLogin = require('./routes/user-login');
 const homeRouter = require('./routes/homeRouter');
-const testRouter = require('./routes/test') 
+
 
 // Middlewares
 app.use(express.json());
@@ -28,8 +28,8 @@ app.use(cors());
 app.use('/signup',userSignup);
 app.use('/login',userLogin);
 app.use('/home',homeRouter);
-app.use('/test',testRouter)
 
-app.listen(PORT,()=>{console.log(`server is listening.... to port ${PORT}`);})
+
+app.listen(PORT,()=>{console.log(`server is listening to port ${PORT}`);})
 
 

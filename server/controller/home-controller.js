@@ -2,9 +2,6 @@ const {User} = require('../model/user');
 const {Post} =require('../model/post');
 
 
-
-
-
 module.exports = {
     getData: async(req,res)=>{
       //req.tokenData has data in token
